@@ -1,0 +1,36 @@
+<div class="w-50 p-3">
+  <div class='jumbotron'>
+    <div class="container">
+      <h4 class="display-4"><%= @num2.person_name %></h4>
+      <p class="lead text-black-50"> Mis datos bancarios son: </p>
+      <hr class="my-4"><br>
+
+      <p>
+        Nombre: <strong><%= @num2.person_name %></strong>
+      </p>
+
+      <p>
+        Rut: <strong><%= @num2.rut %></strong>
+      </p>
+
+      <p>
+        Banco: <strong><%= @num2.bank %></strong>
+      </p>
+
+      <p>
+        Tipo de cuenta: <strong><%= @num2.acc_type %></strong>
+      </p>
+
+      <p>
+        Número de cuenta: <strong><%= @num2.acc_number %></strong>
+      </p>
+
+      <p>
+        E-mail: <strong><%= @num2.email %></strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_num2_path(@num2), class:"btn btn-secondary" %> 
+<%= link_to 'Back', num2s_path, class:"btn btn-dark" %>

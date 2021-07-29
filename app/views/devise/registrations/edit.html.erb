@@ -1,0 +1,54 @@
+<h2>Editar Perfil</h2><br>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="card">
+    <div class="card-body">
+      <h4>Correo electrónico</h4>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %><br>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+    <br>
+    <h4>Cambiar contraseña:</h4>
+      <div class="field">
+        <% f.label :password %> Cambiar contraseña <br />
+        <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder:"Nueva contraseña, dejar en blanco si no se desea modificar" %>
+        <% if @minimum_password_length %>
+          <small class="text-muted"> Mínimo <%= @minimum_password_length %> caracteres</small> <br>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <% f.label :password_confirmation %>Confirmar contraseña <br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
+      </div>
+      <br>  <br>
+
+      <div class="actions">
+        <%= f.submit "Actualizar", class:"btn btn-primary" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <br>  <br>
+
+
+<div class="card">  
+  <div class="card-body">
+    <h3>Eliminar mi cuenta</h3>
+    <p class='card-text'>Si no te gusta la página puedes llegar y eliminar tu cuenta, tan fácil como apretar este botón 
+      <%= button_to "Eliminar cuenta", registration_path(resource_name), data: { confirm: "Estás seguro?" }, method: :delete, class:'btn btn-danger' %>
+    </p>
+  </div>
+</div>
+<br><br>
+<%= link_to "Volver a inicio", :back, class:'btn btn-secondary' %>

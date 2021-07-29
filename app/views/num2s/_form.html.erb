@@ -1,0 +1,61 @@
+<%= form_with(model: num2) do |form| %>
+  <% if num2.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(num2.errors.count, "error") %> prohibited this num2 from being saved:</h2>
+
+      <ul>
+        <% num2.errors.each do |error| %>
+          <li><%= error.full_message class:"alert alert-info"%></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group row">
+    Nombre: 
+    <div class="col">
+      <%= form.text_field :person_name, class:"form-control", placeholder:"Ingrese su nombre completo" %>
+    </div>
+  </div>
+
+  <div class="field form-group row">
+    Rut:
+    <div class="col">
+      <%= form.text_field :rut, class:"form-control", placeholder:"12345678-9" %>
+    </div>
+  </div>
+
+  <div class="field form-group row">
+    Banco:
+    <div class="col">
+      <%= form.text_field :bank, class:"form-control", placeholder:"Seleccione su banco" %>
+    </div>
+  </div>
+
+  <div class="field form-group row">
+    Tipo Cuenta:
+    <div class="col">
+      <%= form.text_field :acc_type, class:"form-control", placeholder:"Seleccione su tipo de cuenta" %>
+    </div>
+  </div>
+
+  <div class="field form-group row">
+    Nr. Cuenta:
+    <div class="col">
+      <%= form.text_field :acc_number, class:"form-control", placeholder:"Ingrese su número de cuenta" %>
+    </div>
+  </div>
+
+  <div class="field form-group row">
+    E-mail:
+    <div class="col">
+      <%= form.text_field :email, class:"form-control", placeholder:"Ingrese su e-mail" %>
+    </div> 
+  </div>
+
+  <%= form.number_field :user_id, id: :num2_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary"%>
+  </div>
+
+<% end %>

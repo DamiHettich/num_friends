@@ -1,0 +1,10 @@
+<div class="container">
+	<br>
+	<h2>Editar datos</h2><br><br>
+
+	<div class="d-flex-grow w-75 justify-content-center">
+		<%= render 'form', num2: @num2 %>
+	</div>	
+	<br>
+	<%= link_to 'Show', @num2, class:'btn btn-primary' %> | <%= link_to 'Eliminar', @num2 ,class:"btn btn-danger",  method: :delete, data: { confirm: '¿Estás seguro?' } %> | <%= link_to 'Back', num2s_path, class:'btn btn-secondary' %>
+</div>
